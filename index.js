@@ -11,3 +11,24 @@ const myPromise = new Promise ((resolve, rejected) => {
 myPromise.then ((data) => {
     console.log(data);
 })
+
+//Encadeamento de .then()
+
+const myPromise2 = new Promise ((resolve, rejected) => {
+    const nome = 'Matheus'
+
+    if (nome === 'Matheus') {
+        resolve('Usuário Matheus encontrado!')
+    } else {
+        rejected('O Usuário Matheus não foi encontrado')
+    }
+})
+
+myPromise2
+.then ((data) => {
+    //Transforma o nosso output em minúsculo
+    return data.toLowerCase()
+})
+.then ((stringModificada) => {
+    console.log(stringModificada)
+})
