@@ -1,4 +1,5 @@
 //Criando uma promessa commun simulando uma busca usuário em uma lista por ex. 
+
 const myPromise = new Promise ((resolve, rejected) => {
     const nome = 'Alírio'
 
@@ -31,4 +32,24 @@ myPromise2
 })
 .then ((stringModificada) => {
     console.log(stringModificada)
+})
+
+//Metódo .catch()
+
+const myPromise3 = new Promise ((resolve, rejected) => {
+    const nome = 'Alírio'
+
+    if (nome === 'Matheus') {
+        resolve('Usuário encontrado!')
+    } else {
+        rejected('Usuário não encontrado')
+    }
+})
+
+myPromise3
+.then ((data) => {
+    console.log(data);
+})
+.catch((err) => {
+    console.log('Aconteceu um erro: '+err)
 })
