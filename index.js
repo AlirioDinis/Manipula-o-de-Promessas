@@ -75,3 +75,24 @@ const resolveALL = Promise.all([p1, p2, p3]).then((data) => {
 })
 
 console.log('Depois do all()')
+
+//Resolve várias promessas com o metodo race
+
+const p4 = new Promise ((resolve, rejected) => {
+    //SetTimeout é uma função assíncrona
+    setTimeout(() => {
+        resolve('P4 ok! TIMEOUT')
+    }, 2000);
+})
+   
+const p5 = new Promise ((resolve, rejected) => {
+    resolve('P5 ok!')
+})
+
+const p6 = new Promise ((resolve, rejected) => {
+    resolve('P6 ok!')
+})
+//Neste método exibe primeira promessa a ser resolvida ou seja por ser uma corrida o p5 é o vencedor!
+const resolveRACE = Promise.race([p4, p5, p6]).then((data) => {
+    console.log(data)
+})
